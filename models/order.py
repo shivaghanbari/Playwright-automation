@@ -13,4 +13,4 @@ class OrderPage:
 
     def cancel_order(self):
         self.page.get_by_role("button", name="لغو سفارش").first.click()
-        expect(self.page.get_by_role("div", name="سفارش شما لغو گردید.")).to_be_visible
+        expect(self.page.get_by_role("div", name="سفارش شما لغو گردید.")).to_be_visible()
