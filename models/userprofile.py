@@ -10,13 +10,13 @@ class Userprofile:
         self.page.get_by_role("button", name="پروفایل").click()
 
     def check_user_profile(self):
-        locator = ("#__next > div > div > div > div >"
-                   " div.profile-header_profile-header"
-                   "__3_8oy.is-mobile > div.profile-header"
-                   "_info__1Jb8s > div.profile-header_left__1N9vV > svg")
-        self.page.locator(locator).click()
-        locator = self.page.get_by_text("ویرایش پروفایل")
-        expect(locator).to_be_visible()
+        profile_path = ("#__next > div > div > div > div >"
+                        " div.profile-header_profile-header"
+                        "__3_8oy.is-mobile > div.profile-header"
+                        "_info__1Jb8s > div.profile-header_left__1N9vV > svg")
+        self.page.locator(profile_path).click()
+        profile_title = self.page.get_by_text("ویرایش پروفایل")
+        expect(profile_title).to_be_visible()
         name = self.page.get_by_role("textbox").first.input_value()
         print("name = ", name)
         family = self.page.get_by_role("textbox").nth(1).input_value()
@@ -25,19 +25,18 @@ class Userprofile:
         expect(phone_number).to_be_disabled()
 
     def edit_user_profile(self, name):
-        locator = ("#__next > div > div > div > div > div.profile_profile__3AU7l.desktop-layout_mobile-view__19WQP.is"
-                   "-mobile > div > div.edit-profile-body_top__4wny4 > div:nth-child(1) > "
-                   "div.undefined.input_input-container__2Z9r1 > svg")
-        self.page.locator(locator).click()
+        remove_icon = (
+            "#__next > div > div > div > div > div.profile_profile__3AU7l.desktop-layout_mobile-view__19WQP.is"
+            "-mobile > div > div.edit-profile-body_top__4wny4 > div:nth-child(1) > "
+            "div.undefined.input_input-container__2Z9r1 > svg")
+        self.page.locator(remove_icon).click()
         self.page.get_by_role("button", name="ویرایش", exact=True).click()
         self.page.get_by_role("button", name="ذخیره تغییرات", exact=True).click()
-        alert = self.page.get_by_text("نام و نام خانوادگی اجباری می باشد.")
+        show_toast_message = self.page.get_by_text("نام و نام خانوادگی اجباری می باشد.")
         time.sleep(2)
-        visible_alert = alert.is_visible()
-        print(visible_alert)
+        is_visible_toast = show_toast_message.is_visible()
+        print(is_visible_toast)
         self.page.get_by_role("textbox").first.click()
         self.page.get_by_role("textbox").first.fill(name)
         self.page.get_by_role("button", name="ویرایش", exact=True).click()
         self.page.get_by_role("button", name="ذخیره تغییرات", exact=True).click()
-
-

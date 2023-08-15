@@ -3,7 +3,7 @@ from models.login import LoginPage
 from models.userprofile import Userprofile
 
 
-def test_login(playwright: Playwright):
+def test_user_profile(playwright: Playwright):
     iphone_13 = playwright.devices['iPhone 13']
     browser = playwright.webkit.launch(headless=False)
     context = browser.new_context(
