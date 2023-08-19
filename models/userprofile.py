@@ -15,8 +15,8 @@ class Userprofile:
                         "__3_8oy.is-mobile > div.profile-header"
                         "_info__1Jb8s > div.profile-header_left__1N9vV > svg")
         self.page.locator(profile_path).click()
-        profile_title = self.page.get_by_text("ویرایش پروفایل")
-        expect(profile_title).to_be_visible()
+        user_profile_title = self.page.get_by_text("ویرایش پروفایل")
+        expect(user_profile_title).to_be_visible()
         name = self.page.get_by_role("textbox").first.input_value()
         print("name = ", name)
         family = self.page.get_by_role("textbox").nth(1).input_value()
