@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import expect
 
 
@@ -16,9 +18,11 @@ class StoreProfile:
         address_two = self.page.get_by_label("ظفر")
 
         is_checked_toggle = address_one.is_checked()
+
         if not is_checked_toggle:
             address_one.check()
-
-        address_two.check()
+        else:
+            address_two.check()
 
         self.page.get_by_role("button", name="تایید آدرس تحویل", exact=True).click()
+        time.sleep(3)
