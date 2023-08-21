@@ -25,4 +25,22 @@ class StoreProfile:
             address_two.check()
 
         self.page.get_by_role("button", name="تایید آدرس تحویل", exact=True).click()
-        time.sleep(3)
+
+    def add_store_detail(self, address_describe):
+        menu_button = ("#__next > div > div > div > div > div"
+                       ".profile_profile__3AU7l.desktop-layout"
+                       "_mobile-view__19WQP.is-mobile > div >"
+                       " div.stores_content__wEl54 > div > div.edi"
+                       "t-store-items_edit-stores-items__3_GWp > div.edit-store-items_store-title__Tk97m > svg")
+        self.page.locator(menu_button).first.click()
+        self.page.get_by_text("افزودن آدرس تحویل (انبار)").click()
+        time.sleep(5)
+        page_title = self.page.get_by_text("آدرس تحویل", exact=True).is_visible()
+        print(page_title)
+        self.page.get_by_role("textbox").click()
+        self.page.get_by_role("textbox").fill(address_describe)
+        self.page.get_by_role("button", name="ثبت آدرس", exact=True).click()
+        time.sleep(5)
+        new_address = self.page.get_by_label("میدان ونک").first.is_visible()
+        print(new_address)
+
