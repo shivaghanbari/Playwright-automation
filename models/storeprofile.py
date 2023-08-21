@@ -1,5 +1,5 @@
 import time
-
+import pyautogui
 from playwright.sync_api import expect
 
 
@@ -41,6 +41,12 @@ class StoreProfile:
         self.page.get_by_role("textbox").fill(address_describe)
         self.page.get_by_role("button", name="ثبت آدرس", exact=True).click()
         time.sleep(5)
-        new_address = self.page.get_by_label("میدان ونک").first.is_visible()
-        print(new_address)
+        new_address_visibility = self.page.get_by_label("میدان ونک").first.is_visible()
+        if new_address_visibility is False:
+            self.page.reload()
+
+        new_address_visibility = self.page.get_by_label("میدان ونک").first.is_visible()
+        print(new_address_visibility)
+
+
 
