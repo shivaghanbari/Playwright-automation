@@ -19,7 +19,7 @@ def test_store_profile(playwright: Playwright):
     user_profile.click_profile()
     store_profile = StoreProfile(page)
     store_profile.click_store()
-    store_profile.add_store_detail(address_describe="میدان ونک")
-    # store_profile.change_store_address()
+    store_profile.add_store_address(address_describe="میدان ونک")
+    store_profile.change_store_address()
 
 
