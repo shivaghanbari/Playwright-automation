@@ -8,7 +8,7 @@ class Userprofile:
 
     def click_profile(self):
         self.page.get_by_role("button", name="پروفایل").click()
-
+    # this function checks some points
     def check_user_profile(self):
         profile_path = ("#__next > div > div > div > div >"
                         " div.profile-header_profile-header"
