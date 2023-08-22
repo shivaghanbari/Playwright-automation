@@ -13,7 +13,7 @@ def test_store_profile(playwright: Playwright):
     page = context.new_page()
     login_page = LoginPage(page)
     login_page.navigate()
-    login_page.enter_phone(phone_number="09699811991")
+    login_page.enter_phone(phone_number="09128164696")
     login_page.enter_otp(otp_code="8585")
     user_profile = Userprofile(page)
     user_profile.click_profile()
