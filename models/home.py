@@ -6,6 +6,6 @@ class HomePage:
         self.page = page 
 
     def click_home(self):
-        self.page.get_by_role("button", name="خانه").click
+        self.page.get_by_role("button", name="خانه").click()
 
     

@@ -161,4 +161,5 @@ cython_debug/
 
 # Playwright Videos
 tests/videos/
+videos/
 qaseio.lock
