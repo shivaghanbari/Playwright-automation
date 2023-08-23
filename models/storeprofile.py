@@ -1,3 +1,4 @@
+import re
 import time
 from playwright.sync_api import expect
 
@@ -28,14 +29,17 @@ class StoreProfile:
 
         self.page.get_by_role("button", name="تایید آدرس تحویل", exact=True).click()
 
-    # this function add a new store address into user's store list
-    def add_store_address(self, address_describe):
+    def menu_button(self):
         menu_button = ("#__next > div > div > div > div > div"
                        ".profile_profile__3AU7l.desktop-layout"
                        "_mobile-view__19WQP.is-mobile > div >"
                        " div.stores_content__wEl54 > div > div.edi"
                        "t-store-items_edit-stores-items__3_GWp > div.edit-store-items_store-title__Tk97m > svg")
         self.page.locator(menu_button).first.click()
+
+    # this function add a new store address into user's store list
+    def add_delivery_address(self, address_describe):
+        self.menu_button()
         self.page.get_by_text("افزودن آدرس تحویل (انبار)").click()
         time.sleep(5)
         page_title = self.page.get_by_text("آدرس تحویل", exact=True).is_visible()
@@ -51,3 +55,14 @@ class StoreProfile:
 
         new_address_visibility = self.page.get_by_label("میدان ونک").first.is_visible()
         print(new_address_visibility)
+
+    def remove_delivery_address(self):
+        self.menu_button()
+        self.page.get_by_text("ویرایش اطلاعات فروشگاه").click()
+        for i in range(6):
+            self.page.mouse.wheel(0, 150)
+            time.sleep(1)
+            i += 1
+        self.page.locator("div").filter(has_text=re.compile(r"^آدرس تحویل\*میدان ونک$")).locator("svg").click()
+        self.page.get_by_role("button", name="بله، حذف شود.").click()
+        time.sleep(5)

@@ -1,7 +1,8 @@
 from playwright.sync_api import Playwright
 from models.login import LoginPage
 
-def test_login(playwright: Playwright):   
+
+def test_login(playwright: Playwright):
     iphone_13 = playwright.devices['iPhone 13']
     browser = playwright.webkit.launch(headless=False)
     context = browser.new_context(
