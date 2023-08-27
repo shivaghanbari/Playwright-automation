@@ -1,5 +1,3 @@
-import re
-import time
 from playwright.sync_api import expect
 
 
@@ -16,7 +14,6 @@ class StoreProfile:
 
     # this function check if an address is checked or not!
     def check_delivery_address(self):
-
         address_one = self.page.get_by_label("دریان نو")
         address_two = self.page.get_by_label("ظفر")
 
@@ -44,32 +41,30 @@ class StoreProfile:
 
     # this function add a new delivery address into user's store list
     def add_new_delivery_address(self, address_name):
+
         self.click_menu_button()
         self.page.get_by_text("افزودن آدرس تحویل (انبار)").click()
-        time.sleep(5)
-        page_title = self.page.get_by_text("آدرس تحویل", exact=True).is_visible()
-        print(page_title)
         self.page.get_by_role("textbox").click()
         self.page.get_by_role("textbox").fill(address_name)
         self.page.get_by_role("button", name="ثبت آدرس", exact=True).click()
-        time.sleep(5)
+        self.page.get_by_text("لیست فروشگاه‌ها").is_visible()
 
         # check if new delivery address is added or not and if it didn't refresh page to show it
         new_address_visibility = self.page.get_by_label("میدان ونک").first.is_visible()
         if new_address_visibility is False:
             self.page.reload()
 
-        # again check to preview new delivery address
-        new_address_visibility = self.page.get_by_label("میدان ونک").first.is_visible()
-        print(new_address_visibility)
-
     def remove_delivery_address(self):
         self.click_menu_button()
         self.page.get_by_text("ویرایش اطلاعات فروشگاه").click()
-        for i in range(6):
-            self.page.mouse.wheel(0, 150)
-            time.sleep(1)
-            i += 1
-        self.page.locator("div").filter(has_text=re.compile(r"^آدرس تحویل\*میدان ونک$")).locator("svg").click()
+
+        trash_icon = (
+            "#__next > div > div > div > div > div.profile_profile__3AU7l.desktop-layout_mobile-view__19WQP.is"
+            "-mobile > div > div > div.auth-base_content__IqeJw.edit-store_content__3YnFC > "
+            "div.add-delivery-address_add-delivery-address-container__2EWX1 > div:nth-child(3) > div > "
+            "div.textarea_textarea-container__2qWHn > div > svg")
+        finding_trash_icon = self.page.locator(trash_icon)
+        finding_trash_icon.scroll_into_view_if_needed()
+        finding_trash_icon.click()
         self.page.get_by_role("button", name="بله، حذف شود.").click()
-        time.sleep(5)
+        self.page.get_by_role("button", name="ذخیره").click()
