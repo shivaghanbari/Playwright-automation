@@ -1,4 +1,4 @@
-from playwright.sync_api import Playwright
+from playwright.sync_api import Playwright, expect
 from models.login import LoginPage
 from models.basket import BasketPage
 from models.order import OrderPage
@@ -18,6 +18,7 @@ def test_order(playwright: Playwright):
     login_page.enter_otp(otp_code="8585")
     login_page.should_see_home()
     basket_page.click_basket()
+    expect(page).to_have_title("سبد خرید")
     if basket_page.basket_has_items():
         basket_page.empty_basket()
     else:

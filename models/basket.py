@@ -10,8 +10,12 @@ class BasketPage:
 
     def basket_has_items(self):
         submit_button = self.page.get_by_role("button", name="ادامه خرید")
-        submit_button.is_visible()
-    
+        try:
+            expect(submit_button).to_be_visible()
+            return True
+        except:
+            return False
+        
     def empty_basket(self):
         self.page.locator(".general-header-mobile_search-icon__qdG6u > .MuiSvgIcon-root").first.click()
         self.page.get_by_role("button", name="بله، حذف شود.").click()
