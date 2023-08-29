@@ -9,14 +9,15 @@ class Userprofile:
     def click_profile(self):
         self.page.get_by_role("button", name="پروفایل").click()
 
+    # this function checks some points like page name and user has name and family
     def check_user_profile(self):
         profile_path = ("#__next > div > div > div > div >"
                         " div.profile-header_profile-header"
                         "__3_8oy.is-mobile > div.profile-header"
                         "_info__1Jb8s > div.profile-header_left__1N9vV > svg")
         self.page.locator(profile_path).click()
-        profile_title = self.page.get_by_text("ویرایش پروفایل")
-        expect(profile_title).to_be_visible()
+        user_profile_title = self.page.get_by_text("ویرایش پروفایل")
+        expect(user_profile_title).to_be_visible()
         name = self.page.get_by_role("textbox").first.input_value()
         print("name = ", name)
         family = self.page.get_by_role("textbox").nth(1).input_value()
@@ -24,6 +25,7 @@ class Userprofile:
         phone_number = self.page.get_by_role("spinbutton")
         expect(phone_number).to_be_disabled()
 
+    # this function checks if user does not have name or family, should get error
     def edit_user_profile(self, name):
         remove_icon = (
             "#__next > div > div > div > div > div.profile_profile__3AU7l.desktop-layout_mobile-view__19WQP.is"
