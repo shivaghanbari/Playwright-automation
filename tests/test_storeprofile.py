@@ -19,6 +19,7 @@ def test_store_profile(playwright: Playwright):
     user_profile.click_profile()
     store_profile = StoreProfile(page)
     store_profile.click_my_stores()
+    # check if target address exists,remove it first then add it
     already_has_address = page.get_by_label("میدان ونک").first.is_visible()
     print(already_has_address)
     if already_has_address is True:
@@ -26,6 +27,5 @@ def test_store_profile(playwright: Playwright):
         store_profile.add_new_delivery_address(address_name="میدان ونک")
     else:
         store_profile.add_new_delivery_address(address_name="میدان ونک")
-    # store_profile.check_delivery_address()
-    # store_profile.change_delivery_address()
-
+    store_profile.check_delivery_address()
+    store_profile.change_delivery_address()

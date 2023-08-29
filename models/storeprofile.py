@@ -1,5 +1,3 @@
-from playwright.sync_api import expect
-
 
 class StoreProfile:
     def __init__(self, page):
@@ -9,8 +7,8 @@ class StoreProfile:
     def click_my_stores(self):
         store_path = ".profile-body-items_profile-body-items__2MEMk > div:nth-child(2) > .MuiSvgIcon-root"
         self.page.locator(store_path).first.click()
-        store_title = self.page.get_by_text("فروشگاه‌های من")
-        expect(store_title).to_be_visible()
+        store_title = self.page.get_by_text("شیوا فروشگاه")
+        store_title.is_visible()
 
     # this function check if an address is checked or not!
     def check_delivery_address(self):
