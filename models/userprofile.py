@@ -1,5 +1,5 @@
 from playwright.sync_api import expect
-import time
+import time,random
 
 
 class Userprofile:
@@ -39,6 +39,7 @@ class Userprofile:
         is_visible_toast = show_toast_message.is_visible()
         print(is_visible_toast)
         self.page.get_by_role("textbox").first.click()
-        self.page.get_by_role("textbox").first.fill(name)
+        n = str(random.randint(0, 99))
+        self.page.get_by_role("textbox").first.fill(name+n)
         self.page.get_by_role("button", name="ویرایش", exact=True).click()
         self.page.get_by_role("button", name="ذخیره تغییرات", exact=True).click()

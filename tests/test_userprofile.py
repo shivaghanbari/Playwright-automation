@@ -1,7 +1,6 @@
 from playwright.sync_api import Playwright
 from models.login import LoginPage
 from models.userprofile import Userprofile
-import random
 
 
 def test_user_profile(playwright: Playwright):
@@ -18,6 +17,4 @@ def test_user_profile(playwright: Playwright):
     user_profile = Userprofile(page)
     user_profile.click_profile()
     user_profile.check_user_profile()
-    n = str(random.randint(0,99))
-    user_profile.edit_user_profile(name="تست" + n)
-
+    user_profile.edit_user_profile(name="تست")
