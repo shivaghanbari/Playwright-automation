@@ -1,4 +1,3 @@
-
 class Bookmark:
     def __init__(self, page):
         self.page = page
@@ -11,7 +10,7 @@ class Bookmark:
             print(target_product, " exists in your history")
             self.page.get_by_text(target_product).first.click()
         else:
-            print("Can not find ", target_product, " fill it")
+            print("Can not find ", target_product, " fill it...")
             self.page.get_by_placeholder("جستجو در پین‌دیس").first.fill("پوشینه شورتی بزرگسال ایزی لایف متوسط 12 عددی")
 
     # user can find product in two ways,directly and un-directly.first method attempts to find product by searching
@@ -19,6 +18,8 @@ class Bookmark:
     def find_product_by_search_bar(self):
         self.page.get_by_placeholder("جستجو در پین‌دیس").first.click()
         self.check_search_history()
-        self.page.get_by_text("پوشینه شورتی بزرگسال ایزی لایف متوسط 12 عددی").first.click()
+        self.page.get_by_role("img", name="category").click()
+        self.page.get_by_text("پوشینه شورتی بزرگسال ایزی لایف متوسط 12 عددی").nth(4).is_visible()
+        self.page.locator(".product-header-mobile_left__3s4DJ > .MuiSvgIcon-root").first.click()
 
     # def find_product_in_brand_list(self):
