@@ -18,4 +18,3 @@ def test_user_profile(playwright: Playwright):
     user_profile.click_profile()
     user_profile.check_user_profile()
     user_profile.edit_user_profile(name="تست")
-
