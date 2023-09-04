@@ -17,7 +17,7 @@ class Bookmark:
     def set_bookmark(self, my_product):
         self.find_product_by_search_bar(product=my_product)
         # Auto-waiting.
-        self.page.get_by_text("جزئیات قیمت").click()
+        self.page.get_by_text("مبلغ قابل پرداخت").click()
 
         # bookmark icon include of two classes.one of them is empty state and the second one shows filled state.
         bookmark_locator = self.page.locator(".product-header-mobile_active-bookmark__2AoQc")
