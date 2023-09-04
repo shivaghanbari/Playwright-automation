@@ -17,6 +17,7 @@ def test_bookmark_product(playwright: Playwright):
     login_page.enter_otp(otp_code="8585")
     user_profile = Userprofile(page)
     bookmark_product = Bookmark(page)
-    bookmark_product.find_product_by_search_bar()
+    # we used a for loop to preview whole bookmark and un-bookmark scenario.
+    for i in range(2):
+        bookmark_product.set_bookmark(my_product="پوشک چسبی مای بیبی سری مهربان باپوست سایز0نرمال22عددی")
     # user_profile.click_profile()
-
