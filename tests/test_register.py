@@ -19,11 +19,11 @@ uid = random.randint(10_000_000_000, 20_000_000_000)
 
 regForm = {
     "phoneNumb": str(phoneNumb),
-    "name": "این اکانت",
-    "family": "تستی است",
+    "name": "This account",
+    "family": "uses for tests",
     "ID": str(uid),
-    "storeName": "مغازه تستی",
-    "address": "شهرک غرب پایین تر از برج میلاد نبش خیابان فلامک",
+    "storeName": "Shiva Store",
+    "address": "968 West Arcadia Drive New York, NY 10027",
     "postalCode": "123456789",
     "role_id": "103",
     "storePhone": "02122306802"

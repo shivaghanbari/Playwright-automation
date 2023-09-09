@@ -1,0 +1,10 @@
+blocking https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200 as it contains Yandex or Goftino or Google
+blocking https://www.googletagmanager.com/gtag/js?id=G-9YG2N6K6WZ as it contains Yandex or Goftino or Google
+blocking https://www.googleoptimize.com/optimize.js?id=OPT-W5KLS62 as it contains Yandex or Goftino or Google
+blocking https://www.googletagmanager.com/gtag/js?id=G-LHD3NRSWJM as it contains Yandex or Goftino or Google
+blocking https://www.googletagmanager.com/gtm.js?id=GTM-P8CPNJB as it contains Yandex or Goftino or Google
+blocking https://mc.yandex.ru/metrika/tag.js as it contains Yandex or Goftino or Google
+blocking https://www.googletagmanager.com/gtm.js?id=GTM-WH846QZ as it contains Yandex or Goftino or Google
+blocking https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext as it contains Yandex or Goftino or Google
+blocking https://mc.yandex.ru/metrika/watch.js as it contains Yandex or Goftino or Google
+blocking https://www.goftino.com/widget/JflcWn as it contains Yandex or Goftino or Google
