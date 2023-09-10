@@ -12,5 +12,6 @@ def test_login(playwright: Playwright):
     login_page = LoginPage(page)
     login_page.navigate()
     login_page.enter_phone(phone_number="09124785819")
+
     login_page.enter_otp(otp_code="8585")
     login_page.should_see_home()
