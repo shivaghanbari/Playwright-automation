@@ -38,9 +38,9 @@ def test_register(playwright: Playwright):
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
     page = context.new_page()
     login_page = LoginPage(page)
-    login_page.navigate()
+    login_page.navigate_to_login()
     login_page.enter_phone(phone_number=regForm["phoneNumb"])
-    login_page.enter_otp(otp_code="8585")
+    login_page.enter_password()
     register_page = Registration(page)
     register_page.should_see_form()
     register_page.registering_form(name=regForm["name"], family=regForm["family"]
