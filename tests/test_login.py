@@ -13,9 +13,9 @@ def test_login(playwright: Playwright):
     navigate_page.navigate()
     login_page = LoginPage(page)
     login_page.navigate_to_login()
-    user_email = input("Enter Email: ")
+    username_email = input("Enter Email or Username: ")
     user_password = input("Enter Password: ")
-    login_page.enter_email(email=user_email)
+    login_page.enter_email(email_username=username_email)
     login_page.enter_password(password=user_password)
-    time.sleep(5)
-
+    login_page.sign_in_button()
+    login_page.page_is_loaded()
