@@ -14,8 +14,12 @@ def test_login(playwright: Playwright):
     login_page = LoginPage(page)
     login_page.navigate_to_login()
     username_email = input("Enter Email or Username: ")
-    user_password = input("Enter Password: ")
+    user_password = input("Enter Password,\nenter idk if you do not remember:\u00A0")
     login_page.enter_email_username(email_username=username_email)
-    login_page.enter_password(password=user_password)
+    if user_password == "idk":
+        reset_email = input("Enter reset email:\u00A0")
+        login_page.forget_password(reset_email=reset_email)
+    else:
+        login_page.enter_password(password=user_password)
     login_page.sign_in_button()
     login_page.page_is_loaded()
