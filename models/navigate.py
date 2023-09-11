@@ -8,6 +8,7 @@ def rout_intercept(route):
     return route.continue_()
 
 
+# Open website
 class Navigate:
     def __init__(self, page):
         self.page = page

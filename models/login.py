@@ -6,12 +6,13 @@ class LoginPage:
     def __init__(self, page):
         self.page = page
 
+    # Navigating to login page
     def navigate_to_login(self):
         self.page.get_by_role("link", name="Log in").click()
         login_page_header = self.page.get_by_text("Sign in to Dribbble")
         expect(login_page_header).to_be_visible()
 
-    def enter_email(self, email_username):
+    def enter_email_username(self, email_username):
         # self.click_email_input =
         self.page.get_by_text("Username or Email").click()
         # self.enter_email =
