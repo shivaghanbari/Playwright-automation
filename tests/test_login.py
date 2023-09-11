@@ -18,8 +18,10 @@ def test_login(playwright: Playwright):
     login_page.enter_email_username(email_username=username_email)
     if user_password == "idk":
         reset_email = input("Enter reset email:\u00A0")
-        login_page.forget_password(reset_email=reset_email)
+        login_page.forget_password()
+        login_page.enter_reset_email(reset_email=reset_email)
     else:
         login_page.enter_password(password=user_password)
-    login_page.sign_in_button()
-    login_page.page_is_loaded()
+        login_page.sign_in_button()
+        login_page.page_is_loaded()
+

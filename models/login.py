@@ -28,12 +28,14 @@ class LoginPage:
         self.page.get_by_role("button", name="Sign In", exact=True).click()
         time.sleep(2)
 
-    def forget_password(self, reset_email):
+    def forget_password(self):
         self.page.get_by_role("link", name="Forgot?").click()
         reset_button = self.page.get_by_role("button", name="Send Reset Instructions", exact=True)
         expect(reset_button).to_be_enabled()
-        self.page.get_by_role("textbox", name="Email Address").click()
-        self.page.get_by_role("textbox", name="Email Address").fill(reset_email)
+
+    def enter_reset_email(self, reset_email):
+        reset_button = self.page.get_by_role("button", name="Send Reset Instructions", exact=True)
+        self.page.locator("#email").fill(reset_email)
         reset_button.click()
 
     def page_is_loaded(self):
