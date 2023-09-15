@@ -17,7 +17,7 @@ The project structure is organized as follows:
 
 ## Getting Started
 
-1. Clone this repository to your local machine.
+Clone this repository to your local machine.
 
 ```bash
 git https://github.com/shivaghanbari/playwright-automation.git
