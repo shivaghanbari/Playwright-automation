@@ -16,6 +16,7 @@ The project structure is organized as follows:
 
 - Here's how your project structure might look:
 
+```
 project/
 │
 ├── tests/
@@ -36,7 +37,7 @@ project/
 │
 └── requirements.txt
 
-
+```
 
 ## Getting Started
 
