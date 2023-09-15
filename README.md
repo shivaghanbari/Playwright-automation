@@ -14,13 +14,36 @@ The project structure is organized as follows:
   
 - **requirements.txt**: Lists Python dependencies for the project.
 
+- Here's how your project structure might look:
+
+project/
+│
+├── tests/
+│   ├── test_login.py
+│   ├── test_register.py
+│   └── ...
+│
+├── models/
+│   ├── login.py
+│   ├── navigate.py
+│   └── ...
+│
+├── utils/
+│   ├── common_functions.py
+│   └── ...
+│
+├── reportsByAllure/
+│
+└── requirements.txt
+
+
 
 ## Getting Started
 
 Clone this repository to your local machine.
 
 ```bash
-git https://github.com/shivaghanbari/playwright-automation.git
+git clone https://github.com/shivaghanbari/playwright-automation.git
 cd playwright-automation
 Install the project dependencies using pip:
   - pip install -r requirements.txt
