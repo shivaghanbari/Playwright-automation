@@ -14,7 +14,7 @@ The project structure is organized as follows:
   
 - **requirements.txt**: Lists Python dependencies for the project.
 
-- Here's how your project structure might look:
+- Here's how this project structure look:
 
 ```
 project/
