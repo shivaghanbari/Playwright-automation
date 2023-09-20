@@ -10,16 +10,14 @@ class LoginPage:
     def navigate_to_login(self):
         self.page.get_by_role("link", name="Log in").click()
 
+    # Clicks and fills the Username or Email input field
     def enter_email_username(self, email_username):
-        # self.click_email_input =
         self.page.get_by_text("Username or Email").click()
-        # self.enter_email =
         self.page.get_by_text("Username or Email").fill(email_username)
 
+    # Clicks and fills the Password input field
     def enter_password(self, password):
-        # self.click_password_input =
         self.page.get_by_label("Password Forgot?").click()
-        # self.enter_password =
         self.page.get_by_label("Password Forgot?").fill(password)
 
     # Clicks the "Sign In" button
