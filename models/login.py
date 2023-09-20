@@ -32,7 +32,9 @@ class LoginPage:
                                                                        "username and password you entered. Please "
                                                                        "check your username and password and try "
                                                                        "again.")
-        return wrong_password_message.is_visible()
+        is_visible = wrong_password_message.is_visible()
+        print(f"Is 'Wrong Password' message visible: {is_visible}")
+        return is_visible
 
     # Clicks the "Forgot?" link and checks if the reset button is enabled
     def forget_password(self):
