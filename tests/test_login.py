@@ -26,4 +26,10 @@ def test_login(playwright: Playwright):
     else:
         login_page.enter_password(password=user_password)
         login_page.sign_in_button()
-        login_page.page_is_loaded()
+        if login_page.wrong_password():
+            retry_password = input("Enter correct password:\u00A0")
+            login_page.enter_password(password=retry_password)
+            login_page.sign_in_button()
+        else:
+            login_page.page_is_loaded()
+

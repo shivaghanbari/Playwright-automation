@@ -18,13 +18,20 @@ class LoginPage:
 
     def enter_password(self, password):
         # self.click_password_input =
-        self.page.get_by_text("Password").click()
+        self.page.get_by_label("Password Forgot?").click()
         # self.enter_password =
-        self.page.get_by_text("Password").fill(password)
+        self.page.get_by_label("Password Forgot?").fill(password)
 
     def sign_in_button(self):
         self.page.get_by_role("button", name="Sign In", exact=True).click()
         time.sleep(2)
+
+    def wrong_password(self):
+        wrong_password_message = self.page.get_by_role("heading", name="We couldn’t find an account matching the "
+                                                                       "username and password you entered. Please "
+                                                                       "check your username and password and try "
+                                                                       "again.")
+        return wrong_password_message.is_visible()
 
     def forget_password(self):
         self.page.get_by_role("link", name="Forgot?").click()
