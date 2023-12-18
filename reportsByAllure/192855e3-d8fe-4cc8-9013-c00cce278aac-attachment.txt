@@ -1,0 +1,8 @@
+blocking https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@500&display=block as it contains Google
+blocking https://accounts.google.com/gsi/client as it contains Google
+blocking https://www.googletagmanager.com/gtag/js?id=UA-24041469-1 as it contains Google
+blocking https://accounts.google.com/gsi/client as it contains Google
+blocking https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@500&display=block as it contains Google
+blocking https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js as it contains Google
+blocking https://www.googletagmanager.com/gtag/js?id=UA-24041469-1 as it contains Google
+Enter Email or Username: 
