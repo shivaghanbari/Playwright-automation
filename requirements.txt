@@ -12,10 +12,6 @@ playwright==1.37.0
 pluggy==1.2.0
 pyee==9.0.4
 pynput==1.7.6
-pyobjc-core==9.2
-pyobjc-framework-ApplicationServices==9.2
-pyobjc-framework-Cocoa==9.2
-pyobjc-framework-Quartz==9.2
 pytest==7.4.0
 pytest-base-url==2.0.0
 pytest-playwright==0.4.2
