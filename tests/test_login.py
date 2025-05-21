@@ -7,7 +7,7 @@ from utils.common_functions import CommonTools
 # Steps
 def test_login(playwright: Playwright):
     # Launch the browser
-    browser = playwright.webkit.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context(record_video_dir="videos/")
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
     page = context.new_page()
